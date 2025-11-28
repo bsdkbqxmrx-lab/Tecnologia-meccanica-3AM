@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errori di Misura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: black;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h1, h2, h3 {
+            color: green;
+        }
+
+        .img-box {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .img-box img {
+            max-width: 350px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background: white;
+            padding: 10px;
+        }
+
+        .errori {
+            font-weight: bold;
+        }
+
+        .definizione {
+            margin-left: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Errori di Misura</h1>
+
+<p>Quando si effettuano delle misurazioni, è importante comprendere che esistono delle incertezze legate ai valori rilevati...</p>
+
+<!-- =============================== -->
+<!-- GRAFICO ERRORE ASSOLUTO        -->
+<!-- =============================== -->
+
+<h2>Errore Assoluto</h2>
+
+<div class="img-box">
+    <img 
+    alt="Grafico errore assoluto"
+    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjZmZmIi8+CjxsaW5lIHgxPSI1MCIgeTE9IjI1MCIgeDI9IjQ1MCIgeTI9IjI1MCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjQiIC8+CjxyZWN0IHg9IjEwMCIgeT0iMTUwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2IxZDE1YSIgLz4KPHJlY3QgeD0iMjgwIiB5PSIxMDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iMTUwIiBmaWxsPSIjZWRhYzJhIiAvPgo8dGV4dCB4PSIxNjAiIHk9IjE0MCIgZm9udC1zaXplPSIyMCIgZmlsbD0iI2ZmZiI+VmFsb3JlIFZlcm88L3RleHQ+Cjx0ZXh0IHg9IjM0MCIgeT0iMTAwIiBmb250LXNpemU9IjIwIiBmaWxsPSIjMDAwIj5WYWxvcmUgTWlzdXJhdG88L3RleHQ+CjxsaW5lIHgxPSIxNjAiIHkxPSIxNTAiIHgyPSIzNDAiIHkyPSIxMDAiIHN0cm9rZT0icmVkIiBzdHJva2Utd2lkdGg9IjQiIC8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjgwIiBmb250LXNpemU9IjI0IiBmaWxsPSJyZWQiPkVycm9yZSBBc3NvbHV0bzogfFZtLVZ2fTwvdGV4dD4KPC9zdmc+"/>
+    <p><em>Confronto tra valore vero e misurato</em></p>
+</div>
+
+<p>L'<span class="errori">errore assoluto</span> è la differenza tra il valore misurato e il valore vero...</p>
+
+<p><span class="definizione">Formula:</span> <code>Errore Assoluto = |Valore Misurato - Valore Vero|</code></p>
+
+<!-- =============================== -->
+<!-- GRAFICO ERRORE RELATIVO        -->
+<!-- =============================== -->
+
+<h2>Errore Relativo</h2>
+
+<div class="img-box">
+    <img 
+    alt="Grafico errore relativo"
+    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjZjhmOGY4Ii8+CjxyZWN0IHg9IjEwMCIgeT0iMTUwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjNzdiYmZmIiAvPgo8dGV4dCB4PSIxMjAiIHk9IjEzMCIgZm9udC1zaXplPSIzMCIgZmlsbD0iIzAwMCI+RXJyb3JlIFJlbGF0aXZvPC90ZXh0Pgo8dGV4dCB4PSIxNTAiIHk9IjIyMCIgZm9udC1zaXplPSIyMiIgZmlsbD0iI2ZmZiI+RXJyb3JlIEFzc29sdXRvIC8gVmFsb3JlIFZlcm88L3RleHQ+CjxsaW5lIHgxPSIxMDAiIHkxPSIyMTAiIHgyPSI0MDAiIHkyPSIyMTAiIHN0cm9rZT0iI2ZmMDAwMCIgc3Ryb2tlLXdpZHRoPSI0Ii8+Cjwvc3ZnPg=="/>
+    <p><em>L’errore relativo espresso come rapporto</em></p>
+</div>
+
+<p>L'<span class="errori">errore relativo</span> esprime l’errore in relazione al valore vero...</p>
+
+<p><span class="definizione">Formula:</span> <code>Errore Relativo = Errore Assoluto / Valore Vero</code></p>
+
+<!-- =============================== -->
+<!-- ERRORE PERCENTUALE             -->
+<!-- =============================== -->
+
+<h2>Errore Percentuale</h2>
+
+<div class="img-box">
+    <img 
+    alt="Grafico percentuale"
+    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjZmZmM2U1Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTIwIiBmb250LXNpemU9IjQwIiBmaWxsPSIjMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4lPC90ZXh0Pgo8L3N2Zz4="/>
+    <p><em>Errore relativo espresso come percentuale</em></p>
+</div>
+
+<p><span class="errori">Errore percentuale</span> = errore relativo × 100</p>
+
+<h3>Esempio</h3>
+
+<p>Supponiamo un valore vero di 100 e uno misurato di 105:</p>
+
+<ul>
+    <li><strong>Errore Assoluto:</strong> 5</li>
+    <li><strong>Errore Relativo:</strong> 0,05</li>
+    <li><strong>Errore Percentuale:</strong> 5%</li>
+</ul>
+
+<h2>Conclusione</h2>
+
+<p>Comprendere gli errori di misura è fondamentale per garantire misurazioni affidabili...</p>
+
+</body>
+</html>
