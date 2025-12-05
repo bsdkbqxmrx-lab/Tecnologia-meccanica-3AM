@@ -1,0 +1,450 @@
+
+
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Unità di misura — Tecnologie Meccaniche</title>
+  <meta name="description" content="Guida rapida alle unità di misura fondamentali per la progettazione meccanica, con esempi e convertitore." />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa7b2;
+      --accent:#2dd4bf;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --maxw:1000px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#071020 0%, #0b1724 100%);
+      color:#e6eef3;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+    }
+    header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:20px;
+    }
+    .logo{
+      width:64px;
+      height:64px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#60a5fa);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:#042028;
+      box-shadow:0 6px 18px rgba(0,0,0,0.6);
+    }
+    h1{font-size:20px;margin:0}
+    p.lead{color:var(--muted);margin:6px 0 0;font-size:14px}
+
+    main{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:20px;
+      align-items:start;
+    }
+
+    @media (max-width:900px){
+      main{grid-template-columns:1fr}
+    }
+
+    .card{
+      background:linear-gradient(180deg,var(--card), rgba(11,18,32,0.6));
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    }
+
+    article h2{
+      margin:0 0 8px;
+      font-size:16px;
+    }
+    .note{color:var(--muted);font-size:13px;margin-bottom:12px}
+    .units-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+    @media (max-width:680px){ .units-grid{grid-template-columns:1fr} }
+
+    .unit{
+      background:var(--glass);
+      padding:12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .unit h3{margin:0 0 6px;font-size:14px}
+    .unit p{margin:0;color:var(--muted);font-size:13px}
+    dl{margin:8px 0 0}
+    dt{font-weight:600}
+    dd{margin:0 0 6px;color:var(--muted)}
+
+    /* right column - convertitore */
+    .aside-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .converter .row{display:flex;gap:8px;margin-bottom:8px}
+    .converter select, .converter input{
+      width:100%;
+      padding:8px 10px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.06);
+      background:transparent;
+      color:inherit;
+      font-size:14px;
+    }
+    .converter button{
+      padding:10px 12px;
+      border-radius:8px;
+      border:0;
+      background:var(--accent);
+      color:#032026;
+      font-weight:600;
+      cursor:pointer;
+      width:100%;
+    }
+    .result{
+      margin-top:10px;padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);
+      font-weight:600;
+    }
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+    .example{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;border:1px dashed rgba(255,255,255,0.03);margin-top:10px;color:var(--muted);font-size:13px}
+    code{background:rgba(255,255,255,0.03);padding:2px 6px;border-radius:6px;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-hidden="true">TM</div>
+      <div>
+        <h1>Unità di misura — Tecnologie Meccaniche</h1>
+        <p class="lead">Guida rapida alle unità più usate in meccanica, con convertitore pratico.</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="card">
+        <article aria-labelledby="intro">
+          <h2 id="intro">Introduzione</h2>
+          <p class="note">Le unità qui presentate si basano sul Sistema Internazionale (SI) e su unità tecniche comunemente usate in industria. Dove esiste equivalenza esatta (es. 1 in = 25.4 mm) è indicata.</p>
+
+          <section aria-labelledby="fundamentali">
+            <h2 id="fundamentali">Unità fondamentali rilevanti</h2>
+            <div class="units-grid" role="list">
+              <div class="unit" role="listitem">
+                <h3>Lunghezza</h3>
+                <p>Unità SI: <strong>metro (m)</strong><br>
+                Altre: millimetro (mm), centimetro (cm), pollice (in), piede (ft).</p>
+                <dl>
+                  <dt>Esempi</dt>
+                  <dd>1 mm = 0.001 m</dd>
+                  <dd>1 in = 25.4 mm (definito esattamente)</dd>
+                </dl>
+              </div>
+
+              <div class="unit" role="listitem">
+                <h3>Massa</h3>
+                <p>Unità SI: <strong>kilogrammo (kg)</strong><br>
+                Altre: grammo (g), tonnellata (t), libbra (lb).</p>
+                <dl>
+                  <dt>Esempi</dt>
+                  <dd>1 g = 0.001 kg</dd>
+                  <dd>1 lb = 0.45359237 kg (definito esattamente)</dd>
+                </dl>
+              </div>
+
+              <div class="unit" role="listitem">
+                <h3>Forza</h3>
+                <p>Unità SI: <strong>newton (N)</strong> — forza necessaria per accelerare 1 kg a 1 m/s².</p>
+                <dl>
+                  <dt>Esempi</dt>
+                  <dd>1 N = 1 kg·m/s²</dd>
+                  <dd>1 lbf ≈ 4.4482216152605 N</dd>
+                </dl>
+              </div>
+
+              <div class="unit" role="listitem">
+                <h3>Pressione</h3>
+                <p>Unità SI: <strong>pascal (Pa)</strong> = N/m². Comuni: bar, MPa, psi.</p>
+                <dl>
+                  <dt>Esempi</dt>
+                  <dd>1 bar = 100000 Pa = 1×10⁵ Pa</dd>
+                  <dd>1 psi ≈ 6894.757293168 Pa</dd>
+                </dl>
+              </div>
+
+              <div class="unit" role="listitem">
+                <h3>Coppia (Torque)</h3>
+                <p>Unità SI: <strong>newton-metro (N·m)</strong>. In pratica: forza × braccio.</p>
+                <dl>
+                  <dt>Esempi</dt>
+                  <dd>1 N·m = 1 N applicato a 1 m di braccio</dd>
+                </dl>
+              </div>
+
+              <div class="unit" role="listitem">
+                <h3>Energia e Lavoro</h3>
+                <p>Unità SI: <strong>joule (J)</strong>. 1 J = 1 N·m.</p>
+              </div>
+
+              <div class="unit" role="listitem">
+                <h3>Potenza</h3>
+                <p>Unità SI: <strong>watt (W)</strong> = J/s. Spesso: kW (chilowatt).</p>
+              </div>
+
+              <div class="unit" role="listitem">
+                <h3>Temperatura</h3>
+                <p>Unità SI: <strong>kelvin (K)</strong>, ma in meccanica si usa comunemente <strong>°C</strong> (gradi Celsius).</p>
+                <dl>
+                  <dt>Esempi</dt>
+                  <dd>°C → K : K = °C + 273.15</dd>
+                </dl>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="buone-pratiche" style="margin-top:14px">
+            <h2 id="buone-pratiche">Buone pratiche</h2>
+            <ul style="color:var(--muted);font-size:13px">
+              <li>Preferire il Sistema Internazionale (SI) per calcoli e specifiche tecniche.</li>
+              <li>Indicare sempre la precisione e le tolleranze (es. ±0.05 mm).</li>
+              <li>Usare unità derivate chiare (es. MPa per pressione strutturale, N·m per coppie)</li>
+              <li>Quando si mostrano valori convertiti, indicare il fattore di conversione usato.</li>
+            </ul>
+
+            <div class="example" aria-live="polite">
+              <strong>Esempio pratico:</strong> Specifica di una vite: <code>M8 × 1.25, lunghezza 30 mm, coppia di serraggio 25 N·m</code>.
+            </div>
+          </section>
+
+          <footer>
+            <p>Fonti e definizioni basate su: Sistema Internazionale (SI) e convenzioni tecniche internazionali.</p>
+          </footer>
+        </article>
+      </div>
+
+      <aside class="card" aria-labelledby="convertitore">
+        <div class="aside-title">
+          <h2 id="convertitore">Convertitore rapido</h2>
+          <small style="color:var(--muted)">Seleziona categoria</small>
+        </div>
+
+        <div class="converter" role="form" aria-label="Convertitore unità">
+          <div class="row">
+            <select id="category" aria-label="Categoria">
+              <option value="length">Lunghezza</option>
+              <option value="mass">Massa</option>
+              <option value="force">Forza</option>
+              <option value="pressure">Pressione</option>
+              <option value="torque">Coppia</option>
+              <option value="temperature">Temperatura</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <input id="inputValue" type="number" inputmode="decimal" placeholder="Valore" aria-label="Valore da convertire" />
+          </div>
+
+          <div class="row">
+            <select id="unitFrom" aria-label="Da unità"></select>
+            <select id="unitTo" aria-label="A unità"></select>
+          </div>
+
+          <div class="row">
+            <button id="convertBtn" type="button">Converti</button>
+          </div>
+
+          <div id="result" class="result" aria-live="polite">Inserisci valore e premi <strong>Converti</strong>.</div>
+
+          <div style="margin-top:10px;color:var(--muted);font-size:13px">
+            <strong>Nota:</strong> conversioni effettuate con fattori standard. Per usi critici, verificare le fonti e l'incertezza.
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    /*
+      Convertitore di unità (semplice, mirato a meccanica).
+      Fattori scelti con riferimento alle definizioni:
+        - 1 in = 25.4 mm (esatto)
+        - 1 ft = 0.3048 m (esatto)
+        - 1 lb = 0.45359237 kg (esatto)
+        - 1 lbf = 4.4482216152605 N (valore definito)
+        - 1 psi = 6894.757293168 Pa (circa; usato per conversione)
+      Nota: questo script non sostituisce una libreria fisica per calcoli a precisione certificata.
+    */
+
+    (function(){
+      const catalog = {
+        length: {
+          label: "Lunghezza",
+          units: {
+            "m": {name:"metro (m)", toSI: v => v, fromSI: v => v},
+            "mm": {name:"millimetro (mm)", toSI: v => v * 0.001, fromSI: v => v / 0.001},
+            "cm": {name:"centimetro (cm)", toSI: v => v * 0.01, fromSI: v => v / 0.01},
+            "in": {name:"pollice (in)", toSI: v => v * 0.0254, fromSI: v => v / 0.0254},
+            "ft": {name:"piede (ft)", toSI: v => v * 0.3048, fromSI: v => v / 0.3048}
+          }
+        },
+        mass: {
+          label: "Massa",
+          units: {
+            "kg": {name:"kilogrammo (kg)", toSI: v => v, fromSI: v => v},
+            "g": {name:"grammo (g)", toSI: v => v * 0.001, fromSI: v => v / 0.001},
+            "lb": {name:"libbra (lb)", toSI: v => v * 0.45359237, fromSI: v => v / 0.45359237},
+            "t": {name:"tonnellata (t)", toSI: v => v * 1000, fromSI: v => v / 1000}
+          }
+        },
+        force: {
+          label: "Forza",
+          units: {
+            "N": {name:"newton (N)", toSI: v => v, fromSI: v => v},
+            "lbf": {name:"libbra-forza (lbf)", toSI: v => v * 4.4482216152605, fromSI: v => v / 4.4482216152605},
+            "kN": {name:"kilonewton (kN)", toSI: v => v * 1000, fromSI: v => v / 1000}
+          }
+        },
+        pressure: {
+          label: "Pressione",
+          units: {
+            "Pa": {name:"pascal (Pa)", toSI: v => v, fromSI: v => v},
+            "kPa": {name:"kilopascal (kPa)", toSI: v => v * 1000, fromSI: v => v / 1000},
+            "MPa": {name:"megapascal (MPa)", toSI: v => v * 1e6, fromSI: v => v / 1e6},
+            "bar": {name:"bar", toSI: v => v * 100000, fromSI: v => v / 100000},
+            "psi": {name:"psi", toSI: v => v * 6894.757293168, fromSI: v => v / 6894.757293168}
+          }
+        },
+        torque: {
+          label: "Coppia",
+          units: {
+            "N·m": {name:"N·m", toSI: v => v, fromSI: v => v},
+            "kgf·m": {name:"kgf·m", toSI: v => v * 9.80665, fromSI: v => v / 9.80665}, // 1 kgf = 9.80665 N
+            "lbf·ft": {name:"lbf·ft", toSI: v => v * 1.3558179483314004, fromSI: v => v / 1.3558179483314004}
+          }
+        },
+        temperature: {
+          label: "Temperatura",
+          units: {
+            "C": {name:"°C", toSI: v => v + 273.15, fromSI: v => v - 273.15},
+            "K": {name:"K", toSI: v => v, fromSI: v => v},
+            "F": {name:"°F", toSI: v => (v - 32) * (5/9) + 273.15, fromSI: v => (v - 273.15) * (9/5) + 32}
+          }
+        }
+      };
+
+      // elementi DOM
+      const categoryEl = document.getElementById('category');
+      const unitFromEl = document.getElementById('unitFrom');
+      const unitToEl = document.getElementById('unitTo');
+      const inputEl = document.getElementById('inputValue');
+      const resultEl = document.getElementById('result');
+      const convertBtn = document.getElementById('convertBtn');
+
+      // popola unità in base alla categoria
+      function populateUnits(cat){
+        unitFromEl.innerHTML = '';
+        unitToEl.innerHTML = '';
+        const units = catalog[cat].units;
+        Object.keys(units).forEach((u, idx) => {
+          const opt1 = document.createElement('option');
+          opt1.value = u;
+          opt1.textContent = units[u].name;
+          unitFromEl.appendChild(opt1);
+
+          const opt2 = document.createElement('option');
+          opt2.value = u;
+          opt2.textContent = units[u].name;
+          unitToEl.appendChild(opt2);
+        });
+        // default: select first for from, second for to if exists
+        unitFromEl.selectedIndex = 0;
+        unitToEl.selectedIndex = Math.min(1, unitToEl.options.length-1);
+      }
+
+      // conversione
+      function convert(){
+        const cat = categoryEl.value;
+        const from = unitFromEl.value;
+        const to = unitToEl.value;
+        let v = parseFloat(inputEl.value);
+        if (!isFinite(v)){
+          resultEl.textContent = 'Inserisci un numero valido.';
+          return;
+        }
+
+        try {
+          // passo a SI
+          const toSI = catalog[cat].units[from].toSI;
+          const fromSI = catalog[cat].units[to].fromSI;
+          const siVal = toSI(v);        // valore in unità SI
+          const outVal = fromSI(siVal); // convertito nell'unità di destinazione
+
+          // formattazione: per temperature manteniamo 2 decimali, per valori grandi usiamo notazione
+          const formatted = formatNumber(outVal, cat);
+          resultEl.innerHTML = `<strong>${formatted}</strong> ${catalog[cat].units[to].name}`;
+        } catch (e){
+          resultEl.textContent = 'Errore nella conversione.';
+          console.error(e);
+        }
+      }
+
+      function formatNumber(x, cat){
+        if (!isFinite(x)) return String(x);
+        // Se è temperatura mostrare 2 decimali
+        if (cat === 'temperature') return Number(x).toFixed(2);
+        // se il numero è tra 0.001 e 1e6 visualizza con 4 cifre significative
+        const abs = Math.abs(x);
+        if ((abs >= 0.001 && abs < 1e6) || abs === 0) {
+          // massimo 6 decimali ma togli zeri finali
+          return trimZeros(Number(x).toFixed(6));
+        } else {
+          // notazione scientifica con 4 cifre significative
+          return Number(x).toExponential(4);
+        }
+      }
+
+      function trimZeros(s){
+        // rimuove zeri finali e punto se necessario
+        return s.replace(/(?:\.0+|(\.\d+?)0+)$/, '$1');
+      }
+
+      // eventi
+      categoryEl.addEventListener('change', () => {
+        populateUnits(categoryEl.value);
+        resultEl.textContent = 'Inserisci valore e premi Converti.';
+      });
+
+      convertBtn.addEventListener('click', convert);
+
+      // supporto tasto Enter
+      inputEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') convert();
+      });
+
+      // inizializzazione
+      populateUnits(categoryEl.value);
+
+      // per accessibilità: focus iniziale su input
+      inputEl.focus();
+
+    })();
+  </script>
+</body>
+</html>
